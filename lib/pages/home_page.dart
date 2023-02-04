@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -18,12 +19,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // ignore: prefer_typing_uninitialized_variables
+  // late final firstCamera;
   final _auth = FirebaseAuth.instance;
   bool load = false;
   @override
-  void initState() {
+   void initState()  {
+    
     super.initState();
     getCurrentUser();
+
     // loadData();
   }
 
@@ -164,7 +169,7 @@ class _HomePageState extends State<HomePage> {
                     subtitle: Padding(
                       padding: const EdgeInsets.fromLTRB(15, 2, 0, 1),
                       child: Text(
-                        "Sell the waste to clean the houses and get some money",
+                        "Welcome to the DumpsVille",
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           color: Colors.black,
@@ -208,7 +213,7 @@ class _HomePageState extends State<HomePage> {
                     subtitle: Padding(
                       padding: const EdgeInsets.fromLTRB(15, 2, 0, 1),
                       child: Text(
-                        "Sell the waste to clean the houses and get some money",
+                        "Its better to donate than accumulate",
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           color: Colors.black,
@@ -230,8 +235,10 @@ class _HomePageState extends State<HomePage> {
                 mainAxisSize: MainAxisSize.max,
                 children: <Widget>[
                   ListTile(
-                    onTap: () => Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Report())),
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Report())),
                     // leading: Image.asset(
                     //   width: 150,
                     //   height: 250,

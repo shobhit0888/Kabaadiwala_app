@@ -49,6 +49,9 @@ dependencies:
   page_transition: ^2.0.9
   shared_preferences: ^2.0.15
   carousel_slider: ^4.1.1
+  camera: ^0.10.3
+  path_provider: ^2.0.12
+  path: ^1.8.2
 
 dev_dependencies:
   flutter_test:
