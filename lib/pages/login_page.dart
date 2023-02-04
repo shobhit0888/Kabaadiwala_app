@@ -10,8 +10,8 @@ import 'package:velocity_x/velocity_x.dart';
 import 'forgot_password.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
-
+  const LoginPage({super.key, this.user});
+ final User? user;
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
@@ -19,6 +19,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final User? user = FirebaseAuth.instance.currentUser;
+
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
   String name = "";
@@ -29,9 +30,10 @@ class _LoginPageState extends State<LoginPage> {
       setState(() {
         changeButton = true;
       });
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 1));
+      // ignore: use_build_context_synchronously
       await Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => HomePage()));
+          context, MaterialPageRoute(builder: (context) => const HomePage()));
     }
   }
 
@@ -75,6 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         TextFormField(
+                          style: TextStyle(color: Colors.white),
                           controller: email,
                           keyboardType: TextInputType.emailAddress,
                           decoration: const InputDecoration(
@@ -86,6 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                             prefixIcon: Icon(Icons.contact_mail_rounded),
                             contentPadding: EdgeInsets.fromLTRB(25, 20, 25, 20),
                             hintText: "Enter email",
+                            hintStyle: TextStyle(color: Colors.white),
                             labelText: "Email ID  ",
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.all(
@@ -105,6 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                           height: 20,
                         ),
                         TextFormField(
+                          style: TextStyle(color: Colors.white),
                           controller: password,
                           obscureText: true,
                           decoration: const InputDecoration(
@@ -117,6 +122,7 @@ class _LoginPageState extends State<LoginPage> {
                               contentPadding:
                                   EdgeInsets.fromLTRB(30, 20, 30, 20),
                               hintText: "Enter password",
+                              hintStyle: TextStyle(color: Colors.white),
                               labelText: "Password",
                               border: OutlineInputBorder(
                                   borderRadius:
@@ -160,8 +166,8 @@ class _LoginPageState extends State<LoginPage> {
                             onTap: () async {
                               // setState(() {});
                               // try {
-                              if ((!email.text.isEmpty) &&
-                                  (!password.text.isEmpty)) {
+                              if ((email.text.isNotEmpty) &&
+                                  (password.text.isNotEmpty)) {
                                 changeButton = true;
                                 await FirebaseAuth.instance
                                     .signInWithEmailAndPassword(
@@ -171,22 +177,21 @@ class _LoginPageState extends State<LoginPage> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => HomePage()));
+                                          builder: (context) => const HomePage()));
                                 });
                               }
-                              ;
                             },
                             child: AnimatedContainer(
-                              duration: Duration(seconds: 1),
+                              duration: const Duration(seconds: 1),
                               width: changeButton ? 50 : 150,
                               height: 50,
                               alignment: Alignment.center,
                               child: changeButton
-                                  ? Icon(
+                                  ? const Icon(
                                       Icons.done,
                                       color: Colors.white,
                                     )
-                                  : Text(
+                                  : const Text(
                                       "Login",
                                       style: TextStyle(
                                         color: Colors.black,
