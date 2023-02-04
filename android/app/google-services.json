@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "897489836499",
+    "project_id": "kabaadiwala",
+    "storage_bucket": "kabaadiwala.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897489836499:android:ae9811dc3a39a40202b726",
+        "android_client_info": {
+          "package_name": "com.example.kabaadiwala"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "897489836499-3cenhpn7qrcoc1ot3la34ur2t90l5eal.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kabaadiwala",
+            "certificate_hash": "54b483985b53d22a05a109373ccce8d3c70fea5e"
+          }
+        },
+        {
+          "client_id": "897489836499-630dk2e2dvfml4fvq3l4e6lv5jpn7arv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIkAF9xuCMEHM7y0eK1OVXE-UzWZwIjn4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "897489836499-630dk2e2dvfml4fvq3l4e6lv5jpn7arv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
