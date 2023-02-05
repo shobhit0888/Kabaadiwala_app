@@ -1,8 +1,12 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:camera/camera.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:kabaadiwala/pages/login_page.dart';
 import 'package:kabaadiwala/widgets/themes.dart';
 import 'package:page_transition/page_transition.dart';
@@ -15,6 +19,9 @@ void main() async {
   // Get a specific camera from the list of available cameras.
   final firstCamera = cameras.first;
   await Firebase.initializeApp();
+  if (defaultTargetPlatform == TargetPlatform.android) {
+AndroidGoogleMapsFlutter.useAndroidViewSurface = true;
+  }
   runApp(const Kabaadiwala());
 }
 
