@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             AppBar(
               title: "Kabaadiwala".text.color(Colors.black).make(),
-              backgroundColor: Colors.white,
+              backgroundColor: Colors.grey[400],
               // ignore: prefer_const_literals_to_create_immutables
             ),
             SizedBox(
@@ -256,7 +256,7 @@ class _HomePageState extends State<HomePage> {
                     subtitle: Padding(
                       padding: const EdgeInsets.fromLTRB(15, 2, 0, 1),
                       child: Text(
-                        "Sell the waste to clean the houses and get some money",
+                        "Help us to collect the random waste",
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           color: Colors.black,

@@ -16,7 +16,7 @@ class Dump extends StatefulWidget {
 class _DumpState extends State<Dump> {
   GoogleMapController? mapController; //contrller for Google map
   Set<Marker> markers = Set(); //markers for google map
-  LatLng showLocation = const LatLng(27.7089427, 85.3086209);
+  LatLng showLocation = const LatLng(23.2026, 72.5838);
   //location to show in map
 
   @override
@@ -46,7 +46,7 @@ class _DumpState extends State<Dump> {
     return Scaffold(
       // backgroundColor: Colors.transparent,
       appBar: AppBar(
-        title: Text("Google Map in Flutter"),
+        title: Text("Nearby Places to Dump"),
         backgroundColor: Colors.deepPurpleAccent,
       ),
       body: GoogleMap(
@@ -57,7 +57,7 @@ class _DumpState extends State<Dump> {
           target: showLocation, //initial position
           zoom: 1.0, //initial zoom level
         ),
-        markers: markers, //markers to show on map
+        markers: getmarkers(), //markers to show on map
         mapType: MapType.normal, //map type
         onMapCreated: (controller) {
           //method called when map is created
@@ -67,5 +67,50 @@ class _DumpState extends State<Dump> {
         },
       ),
     );
+  }
+
+  Set<Marker> getmarkers() {
+    //markers to place on map
+    setState(() {
+      markers.add(Marker(
+        //add first marker
+        markerId: MarkerId(showLocation.toString()),
+        position: showLocation, //position of marker
+        infoWindow: InfoWindow(
+          //popup info
+          title: 'Marker Title First ',
+          snippet: 'My Custom Subtitle',
+        ),
+        icon: BitmapDescriptor.defaultMarker, //Icon for Marker
+      ));
+
+      markers.add(Marker(
+        //add second marker
+        markerId: MarkerId(showLocation.toString()),
+        position: LatLng(23.237560, 72.547781), //position of marker
+        infoWindow: InfoWindow(
+          //popup info
+          title: 'Marker Title Second ',
+          snippet: 'My Custom Subtitle',
+        ),
+        icon: BitmapDescriptor.defaultMarker, //Icon for Marker
+      ));
+
+      markers.add(Marker(
+        //add third marker
+        markerId: MarkerId(showLocation.toString()),
+        position: LatLng(23.037560, 72.647781), //position of marker
+        infoWindow: InfoWindow(
+          //popup info
+          title: 'Marker Title Third ',
+          snippet: 'My Custom Subtitle',
+        ),
+        icon: BitmapDescriptor.defaultMarker, //Icon for Marker
+      ));
+
+      //add more markers here
+    });
+
+    return markers;
   }
 }

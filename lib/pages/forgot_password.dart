@@ -112,6 +112,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       TextFormField(
+                        style: TextStyle(color: Colors.white),
                         controller: _emailTextController,
                         decoration: const InputDecoration(
                           enabledBorder: OutlineInputBorder(
